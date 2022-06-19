@@ -1,0 +1,3 @@
+dnspython
+rich
+textwrap
