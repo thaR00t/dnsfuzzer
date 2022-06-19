@@ -72,7 +72,7 @@ def main():
                         
                         #creating an output
                         
-                        output=  {ip}+ ' '*15 + domain_scan
+                        output=  ip+ ' '*15 + domain_scan
                         
                         print(f"[bold green]{output}[/bold green]")
 
