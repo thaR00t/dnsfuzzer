@@ -26,6 +26,7 @@ def display():
     print('[bold green]Ctrl^C to interrupt the script')
     print('[bold green]Scan start at', datetime.now())
     print('[bold green]-[/bold green]'*50)
+    print('[bold green]IP:'  +' '*28+ 'DOMAIN:[/bold green]')
 
 if __name__ == '__main__':
 
@@ -85,6 +86,7 @@ def main():
                         
                     else:
                         pass                
+
             #Creating exception
             except dns.resolver.NXDOMAIN:            
                 pass
