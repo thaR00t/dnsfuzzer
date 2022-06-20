@@ -22,7 +22,7 @@ def banner():
 
 def display():
     print('[bold green]-[/bold green]'*50)
-    print('[bold green]Domain fuzzer[/bold green]')
+    print(f'[bold green]Domain fuzzer {domain}[/bold green]')
     print('[bold green]Ctrl^C to interrupt the script')
     print('[bold green]Scan start at', datetime.now())
     print('[bold green]-[/bold green]'*50)
@@ -57,7 +57,7 @@ def main():
                 ip_value = dns.resolver.resolve(f'{subdom}.{domain}','A')
                 #if there is a connection then...
                 if ip_value:
-
+                    
                     #append in subdomain_store the subdom and the domain
                     subdomain_store.append(f'{subdom}.{domain}')
 
@@ -82,10 +82,9 @@ def main():
                             with open(out,'a') as f:
                                 f.write(output2)
                                 f.close()
-
+                        
                     else:
-                        pass
-                
+                        pass                
             #Creating exception
             except dns.resolver.NXDOMAIN:            
                 pass
@@ -93,8 +92,9 @@ def main():
                 pass
             except KeyboardInterrupt:
                 print("[bold red][*]Script interrupt by user[*][/bold red]")
+                print("[bold green]-[/bold green]"*50)
                 quit()
-    else:
+    else:        
         print("[bold red][!]Missing domain[!][/bold red]")
         print("[bold red]Use [-h] or [--help] to show the help[/bold red]")
 main()
