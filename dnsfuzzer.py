@@ -22,7 +22,7 @@ def banner():
 
 def display():
     print('[bold green]-[/bold green]'*50)
-    print(f'[bold green]Domain fuzzer {domain}[/bold green]')
+    print(f'[bold green]Domain:  {domain}[/bold green]')
     print('[bold green]Ctrl^C to interrupt the script')
     print('[bold green]Scan start at', datetime.now())
     print('[bold green]-[/bold green]'*50)
