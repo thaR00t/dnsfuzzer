@@ -23,10 +23,11 @@ def banner():
 def display():
     print('[bold green]-[/bold green]'*50)
     print(f'[bold green]Domain:  {domain}[/bold green]')
-    print('[bold green]Ctrl^C to interrupt the script')
+    print('[bold green]Ctrl^C to interrupt the script[/bold green]')
     print('[bold green]Scan start at', datetime.now())
     print('[bold green]-[/bold green]'*50)
     print('[bold green]IP:'  +' '*28+ 'DOMAIN:[/bold green]')
+    
 
 if __name__ == '__main__':
 
@@ -51,6 +52,7 @@ def main():
     if domain:
         print(banner())
         display()
+        
         for subdom in sub_domain_arr:
             
             try:  
@@ -72,16 +74,15 @@ def main():
                         ip = socket.gethostbyname(domain_scan)
                         
                         #creating an output
-                        
-                        output=  ip+ ' '*15 + domain_scan
-                        
-                        print(f"[bold green]{output}[/bold green]")
+                                                                        
+                        print(f"[bold green]{ip}              {domain_scan}[/bold green]")
 
                         #crating a output file if the user want
                         if out:
-                            output2 = ip+" "*10+ domain_scan + '\n'
+                            line = '-'*20+'\n'
+                            output2 = ip+ ' '*10 + domain_scan + '\n'
                             with open(out,'a') as f:
-                                f.write(output2)
+                                f.write(line+output2)
                                 f.close()
                         
                     else:
@@ -91,6 +92,10 @@ def main():
             except dns.resolver.NXDOMAIN:            
                 pass
             except dns.resolver.NoAnswer:
+                pass
+            except dns.resolver.LifetimeTimeout:
+                pass
+            except dns.resolver.NoNameservers:
                 pass
             except KeyboardInterrupt:
                 print("[bold red][*]Script interrupt by user[*][/bold red]")
