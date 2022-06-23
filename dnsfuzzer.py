@@ -1,5 +1,5 @@
 import dns.resolver
-from rich import print
+from rich import print,progress
 import textwrap
 import socket
 from datetime import datetime
@@ -24,7 +24,7 @@ def display():
     print('[bold green]-[/bold green]'*50)
     print(f'[bold green]Domain:  {domain}[/bold green]')
     print('[bold green]Ctrl^C to interrupt the script[/bold green]')
-    print('[bold green]Scan start at', datetime.now())
+    print('[bold green]Scan start at', str(t1))
     print('[bold green]-[/bold green]'*50)
     print('[bold green]IP:'  +' '*28+ 'DOMAIN:[/bold green]')
     
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     args=parser.parse_args()
     domain = args.domain
     out = args.output
-
+    t1 = datetime.now()
 
 def main():
     
@@ -101,6 +101,8 @@ def main():
                 print("[bold red][*]Script interrupt by user[*][/bold red]")
                 print("[bold green]-[/bold green]"*50)
                 quit()
+       
+        print(f"[bold green]\nScan complete!")
     else:        
         print("[bold red][!]Missing domain[!][/bold red]")
         print("[bold red]Use [-h] or [--help] to show the help[/bold red]")
