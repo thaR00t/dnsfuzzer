@@ -1,5 +1,5 @@
 import dns.resolver
-from rich import print,progress
+from rich import print
 import textwrap
 import socket
 from datetime import datetime
