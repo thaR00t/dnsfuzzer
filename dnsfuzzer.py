@@ -1,7 +1,6 @@
 import dns.resolver
 from rich import print
 import textwrap
-import socket
 from datetime import datetime
 import argparse
 
@@ -26,7 +25,7 @@ def display():
     print('[bold green]Ctrl^C to interrupt the script[/bold green]')
     print('[bold green]Scan start at', str(t1))
     print('[bold green]-[/bold green]'*50)
-    print('[bold green]IP:'  +' '*28+ 'DOMAIN:[/bold green]')
+    print('[bold green]DOMAIN:\n[/bold green]')
     
 
 if __name__ == '__main__':
@@ -34,6 +33,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Domain fuzzer resolver:",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     epilog=textwrap.dedent("""EXAMPLE:\n
+    
     dnsfuzzer.py -d <domain> 
     dnsfuzzer.py -d <domain> -o <filename.txt>
     """))    
@@ -71,18 +71,18 @@ def main():
                         domain_scan = f'{subdom}.{domain}'
 
                         #connection to get the ip
-                        ip = socket.gethostbyname(domain_scan)
+                        
                         
                         #creating an output
                                                                         
-                        print(f"[bold green]{ip}              {domain_scan}[/bold green]")
+                        print(f"[bold green]{domain_scan}[/bold green]")
 
                         #crating a output file if the user want
                         if out:
-                            line = '-'*20+'\n'
-                            output2 = ip+ ' '*10 + domain_scan + '\n'
+                            
+                            output2 = domain_scan + '\n'
                             with open(out,'a') as f:
-                                f.write(line+output2)
+                                f.write(output2)
                                 f.close()
                         
                     else:
