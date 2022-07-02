@@ -5,7 +5,8 @@
 
 
 
-https://user-images.githubusercontent.com/87804260/174618735-53bddedd-886c-4174-87f8-f8fae7a2b299.mp4
+
+![2022-07-02 19-50-12](https://user-images.githubusercontent.com/87804260/177011289-ca317efd-e076-4d80-bb72-2ba6a76995e3.gif)
 
 
 
