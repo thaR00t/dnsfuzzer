@@ -1,7 +1,6 @@
 import dns.resolver
 from rich import print
 import textwrap
-from datetime import datetime
 import argparse
 
 
@@ -20,12 +19,11 @@ def banner():
     return a
 
 def display():
-    print('[bold green]-[/bold green]'*50)
-    print(f'[bold green]Domain:  {domain}[/bold green]')
-    print('[bold green]Ctrl^C to interrupt the script[/bold green]')
-    print('[bold green]Scan start at', str(t1))
-    print('[bold green]-[/bold green]'*50)
-    print('[bold green]DOMAIN:\n[/bold green]')
+    print('[bold blue]-[/bold blue]'*50)
+    print(f'[bold blue]Domain:  {domain}[/bold blue]')
+    print('[bold blue]Ctrl^C to interrupt the script[/bold blue]')
+    print('[bold blue]-[/bold blue]'*50)
+    print('[bold blue]DOMAIN:\n[/bold blue]')
     
 
 if __name__ == '__main__':
@@ -42,7 +40,7 @@ if __name__ == '__main__':
     args=parser.parse_args()
     domain = args.domain
     out = args.output
-    t1 = datetime.now()
+    
 
 def main():
     
@@ -70,13 +68,11 @@ def main():
                         #with this var we can take the domain's ip
                         domain_scan = f'{subdom}.{domain}'
 
-                        #connection to get the ip
-                        
-                        
+                                                
                         #creating an output
                                                                         
-                        print(f"[bold green]{domain_scan}[/bold green]")
-
+                        print(f"[bold purple]{domain_scan}[/bold purple]")
+                        
                         #crating a output file if the user want
                         if out:
                             
@@ -98,12 +94,12 @@ def main():
             except dns.resolver.NoNameservers:
                 pass
             except KeyboardInterrupt:
-                print("[bold red][*]Script interrupt by user[*][/bold red]")
-                print("[bold green]-[/bold green]"*50)
+                print("[bold red]\n[-]Script interrupt by user[-][/bold red]")
+                
                 quit()
        
-        print(f"[bold green]\nScan complete!")
+        print(f"[bold blue]\nScan complete!")
     else:        
-        print("[bold red][!]Missing domain[!][/bold red]")
-        print("[bold red]Use [-h] or [--help] to show the help[/bold red]")
+        print("[bold red]\n[!]Missing domain[/bold red]")
+        print("[bold red]Use [-h] or [--help] to show the help\n[/bold red]")
 main()
