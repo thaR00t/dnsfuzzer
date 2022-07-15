@@ -24,8 +24,9 @@ def display():
     print(f"[bold red]Host address[/bold red] [bold blue]{domain} : {socket.gethostbyname(domain)}")
     print('[bold blue]-[/bold blue]'*40, end='\n' )
     print('\n'*2)
-    print("[bold red]Scanning Subdomains")
-    print("[bold blue]-"*19)
+    print("[bold red]{:<30}   {:<}".format('Subdomains:','IpAddress:'))
+    print('[bold blue]-'*10, ' '*21 , '[bold blue]-'*14)
+    
     
     
 
